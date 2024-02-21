@@ -2,9 +2,9 @@
 
 int main(void)
 {
-	printf("%lu", sizeof(char));
-	printf("%lu", sizeof(int));
-	printf("%lu", sizeof(float));
-	printf("%lu", sizeof(double));
+	printf("Size of a char:%c", sizeof(char));
+	printf("Size of an int:%i", sizeof(int));
+	printf("Size of a long int:%ld", sizeof(float));
+	printf("Size of a long long int:%lld", sizeof(double));
 	return (0);
 }
