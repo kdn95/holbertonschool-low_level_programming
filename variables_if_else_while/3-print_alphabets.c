@@ -6,10 +6,18 @@
  */
 int main(void)
 {
-char letter;
-for (letter = 'A', letter = 'z'; letter++;)
+char lwr_case = 'a';
+char uppr_case = 'A';
+while (lwr_case <= 'z')
 {
-putchar(letter);
+putchar(lwr_case);
+lwr_case++;
 }
+while (uppr_case >= 'Z')
+{
+putchar(uppr_case);
+uppr_case++;
+}
+putchar('\n');
 return (0);
 }
