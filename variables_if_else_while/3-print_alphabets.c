@@ -13,7 +13,7 @@ while (lwr_case <= 'z')
 putchar(lwr_case);
 lwr_case++;
 }
-while (uppr_case >= 'Z')
+while (uppr_case <= 'Z')
 {
 putchar(uppr_case);
 uppr_case++;
