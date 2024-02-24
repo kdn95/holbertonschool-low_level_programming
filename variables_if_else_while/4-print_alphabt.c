@@ -7,9 +7,12 @@
 int main(void)
 {
 char q_e = 'a';
-while (q_e <= 'z' && q_e != 'q' && q_e != 'e')
+while (q_e <= 'z')
+{
+if (q_e != 'q' && q_e != 'e')
 {
 putchar(q_e);
+}
 q_e++;
 }
 putchar('\n');
