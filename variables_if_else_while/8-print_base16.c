@@ -11,7 +11,7 @@ char hex[] = "0123456789abcdef";
 while (p < 16)
 {
 putchar(hex[p]);
-p++; 
+p++;
 }
 putchar('\n');
 return (0);
