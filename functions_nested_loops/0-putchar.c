@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include "main.h"
 /**
  * main - print _putchar
  *
@@ -6,13 +7,14 @@
  */
 int main(void)
 {
-const char *str = "_putchar";
-int i = 0;
-while (str[i] != '\0')
-{
-putchar(str[i]);
-i++;
-}
-putchar('\n');
+_putchar('_');
+_putchar('p');
+_putchar('u');
+_putchar('t');
+_putchar('c');
+_putchar('h');
+_putchar('a');
+_putchar('r');
+_putchar('\n');
 return (0);
 }
