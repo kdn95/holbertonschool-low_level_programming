@@ -16,7 +16,7 @@ while (i < n)
 int j = 0;
 while (j < n)
 {
-if (j == i)  
+if (j == i)
 _putchar('\\');
 else if (j < i)
 _putchar(' ');
