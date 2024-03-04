@@ -14,14 +14,16 @@ return;
 while (i < n)
 {
 int j = 0;
-while (j < i)
+while (j < n)
 {
+if (j == i)  
+_putchar('\\');
+else if (j < i)
 _putchar(' ');
 j++;
 }
-_putchar('\\');
 _putchar('\n');
 i++;
 }
-_putchar('\n');
 }
+
