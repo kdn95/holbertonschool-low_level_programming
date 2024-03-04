@@ -22,7 +22,7 @@ else if (a % 5 == 0)
 printf("Buzz ");
 }
 else
-printf("%d ", a);   
+printf("%d ", a);
 }
 return (0);
 }
