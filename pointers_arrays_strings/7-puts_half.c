@@ -14,11 +14,11 @@ l++;
 a = l / 2;
 if (a % 2 == 0)
 {
-b = a;
+b = a + 1;
 }
 else
 {
-b = a;
+b = a - 1;
 }
 while (str[b] != '\0')
 {
