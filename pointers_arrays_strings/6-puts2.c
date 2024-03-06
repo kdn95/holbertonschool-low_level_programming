@@ -5,11 +5,17 @@
  */
 void puts2(char *str)
 {
-int l = 0;
-while (str[l] != '\0')
+int l6, i6;
+l6 = 0;
+i6 = 0;
+while (str[l6] != '\0')
 {
-_putchar(str[l]);
-l = l + 2;
+l6++;
+}
+while(i6 < l6)
+{
+_putchar(str[l6]);
+l6 = l6 + 2;
 }
 _putchar('\n');
 }
