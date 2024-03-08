@@ -1,14 +1,13 @@
 #include "main.h"
 /**
  * cap_string - capitalize string
- * @str: string
+ * @s: string
  * Return: new string
  */
 char *cap_string(char *s)
 {
 int i, j;
-char x[13] =
-{
+char x[13] = {
 ' ', '\t', '\n', ',', ';', '.',
 '!', '?', '"', '(', ')', '{', '}'
 };
