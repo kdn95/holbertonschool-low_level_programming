@@ -1,0 +1,9 @@
+#include "main.h"
+/**
+ * reverse_array - reverse array of ints
+ * @a: array
+ * @n: no of elements in array
+ */
+void reverse_array(int *a, int n)
+{
+  int i, a, 
