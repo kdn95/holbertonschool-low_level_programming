@@ -1,0 +1,28 @@
+#include "main.h"
+#include <stdio.h>
+/**
+ * _strpbrk - finds all chars in s based on
+ * any chars in accept string
+ * @s: string containing the chars of accept
+ * @accept: the string that contains all chars in s
+ * Return: s based on chars only avail from accept
+ */
+char *_strpbrk(char *s, char *accept)
+{
+int i, j;
+i = 0;
+while (s[i] != '\0')
+{
+j = 0;
+while (accept[j] != '\0')
+{
+if (s[i] == accept[j])
+{
+return (&s[i]);
+}
+j++;
+}
+i++;
+}
+return (NULL);
+}
