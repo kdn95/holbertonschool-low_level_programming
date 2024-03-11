@@ -1,0 +1,15 @@
+#include "main.h"
+/**
+ * _sqrt_recursion - sqroot
+ * of given number
+ * @n: number
+ * Return: sqrt num or -1 if
+ * no natural sqroot
+ */
+int _sqrt_recursion(int n)
+{
+  if (((n * _sqrt_recursion(n ,2) / 2) % 10
+!= 0))
+{
+  return (-1);
+ }
