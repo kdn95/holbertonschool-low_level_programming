@@ -1,0 +1,27 @@
+#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+/**
+ * main - multiply 2 numbers
+ * @argc: num of args
+ * @argv: array of args
+ * Return: Always 0 (Success)
+ */
+int main(int argc, char *argv[])
+{
+int i, mul;
+mul = 1;
+if (argc != 3)
+{
+printf("Error\n");
+return (1);
+}
+i = 1;
+while (i < argc)
+{
+mul *= atoi(argv[i]);
+i++;
+}
+printf("%d\n", mul);
+return (0);
+}
