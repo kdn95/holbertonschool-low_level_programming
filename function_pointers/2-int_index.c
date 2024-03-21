@@ -15,7 +15,7 @@ int i;
 if (size <= 0)
 return (-1);
 if (!array || !size)
-return (-1);
+return (0);
 i = size;
 while (size--)
 if (cmp(array[i - size]))
