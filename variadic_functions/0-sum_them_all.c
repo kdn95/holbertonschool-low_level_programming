@@ -10,7 +10,7 @@ int sum_them_all(const unsigned int n, ...)
 {
 unsigned int i, sum_of;
 va_list start_sumz;
-sum_of = 0; 
+sum_of = 0;
 if (n == 0)
 {
 return (0);
