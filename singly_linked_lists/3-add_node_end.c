@@ -26,12 +26,10 @@ new_end->next = NULL;
 if (*head == NULL)
 {
 *head = new_end;
-return (NULL);
+return (new_end);
 }
 while (last->next != NULL)
-{
 last = last->next;
-}
 last->next = new_end;
-return (*head);
+return (new_end);
 }
