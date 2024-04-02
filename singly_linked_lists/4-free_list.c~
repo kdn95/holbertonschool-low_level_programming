@@ -1,0 +1,19 @@
+#include "lists.h"
+#include <stdlib.h>
+#include <string.h>
+/**
+ * free_list - frees a list
+ * @head: starting node
+ */
+void free_list(list_t *head)
+{
+list_t *temp;
+temp = *head;
+while (temp != NULL)
+{
+list_t *new_temp = temp;
+temp = temp->next;
+free(new_temp);
+}
+*head = NULL;
+}
