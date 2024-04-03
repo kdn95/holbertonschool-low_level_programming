@@ -1,0 +1,22 @@
+#include "lists.h"
+#include <stdio.h>
+#include <stdlib.h>
+/**
+ * sum_dlistint - sum of all elems
+ * @head: pointer to head node
+ * Return: sum of all elems or NULL
+ */
+int sum_dlistint(dlistint_t *head)
+{
+int i = 0;
+if (head == NULL)
+{
+return (0);
+}
+while (head != NULL)
+{
+i += head->n;
+head = head->next;
+}
+return (i);
+}
