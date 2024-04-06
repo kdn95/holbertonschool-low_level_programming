@@ -1,5 +1,4 @@
 #include "lists.h"
-
 /**
  * insert_dnodeint_at_index - add node at index
  * @h: head node
@@ -10,41 +9,54 @@
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 dlistint_t *new;
-dlistint_t *head;
-unsigned int i;
-new = NULL;
-if (idx == 0)
-new = add_dnodeint(h, n);
-else
+dlistint_t *spot;
+dlistint_t *prev = NULL;
+unsigned int i = 0;
+new = malloc(sizeof(dlistint_t);
+if (new == NULL)
 {
-head = *h;
-i = 1;
-if (head != NULL)
-while (head->prev != NULL)
-head = head->prev;
-while (head != NULL)
-{
-if (i == idx)
-{
-if (head->next == NULL)
-new = add_dnodeint_end(h, n);
-else
-{
-new = malloc(sizeof(dlistint_t));
-if (new != NULL)
-{
+free(new);
+free_list(*h);
+exit(98);
+}
 new->n = n;
-new->next = head->next;
-new->prev = head;
-head->next->prev = new;
-head->next = new;
+spot = *h;
+while (spot != NULL && i < idx)
+{
+prev = spot;
+spot = spot->next;
+i = i + 1;
+}
+if (i != idx)
+return (NULL);
+if (spot == NULL)
+{
+if (i == 0)
+*h = new;
+new->prev = NULL;
+new->next = NULL;
+}
+else
+{
+prev->next = new;
+new->prev = prev;
+new->next = NULL;
 }
 }
-break;
+else
+{
+if (i == 0)
+spot->prev = new;
+new->next = spot;
+new->prev = NULL;
+*h = node;
 }
-head = head->next;
-i++;
+else
+{
+spot->prev->next = new;
+new->prev = spot->prev;
+spot->prev = new;
+new->next = spot;
 }
 }
 return (new);
-}
