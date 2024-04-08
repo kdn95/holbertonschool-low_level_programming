@@ -11,7 +11,7 @@ if (b == NULL)
 {
 return (0);
 }
- if (*b == '\0')
+if (*b == '\0')
 {
 return (0);
 }
