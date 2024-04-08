@@ -7,22 +7,9 @@
  */
 void print_binary(unsigned long int n)
 {
-int x, y, bin_num[32];
-x = 0;
-if (n == 0)
+if (n > 1)
 {
-printf("0");
+print_binary(n >> 1);
 }
-while (n > 0)
-{
-bin_num[x] = n % 2;
-n = n / 2;
-x++;
-}
-y = x - 1;
-while (y >= 0)
-{
-printf("%d", bin_num[y]);
-y--;
-}
+_putchar((n & 1) + '0');
 }
