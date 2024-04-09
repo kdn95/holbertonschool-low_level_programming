@@ -13,13 +13,10 @@ if (n == NULL || index > 64)
 {
 return (-1);
 }
-if(*n != 0)
+if ((*n >> index) & 1)
 {
-(*n) ^= y;
-}
-else
-{
-return (-1);
+*n -= y;
+return (1);
 }
 return (1);
 }
