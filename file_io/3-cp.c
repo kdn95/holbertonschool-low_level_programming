@@ -1,0 +1,91 @@
+#include "main.h"
+/**
+ * open_file_from - open first file to copy
+ * @file_from: file to copy before read
+ * Return: 1 for success
+*/
+int open_file_from(const char *file_from)
+{
+int f_op1;
+f_op1 = open(file_from, O_RDONLY);
+if (f_op1 < 0)
+{
+dprintf(STDERR_FILENO, "Error: Can't read from %s\n", file_from);
+exit(98);
+}
+return (f_op1);
+}
+/**
+ * open_file_to - open file to copy to
+ * @file_to: name of file to copy into
+ * Return: 1 for success
+*/
+int open_file_to(const char *file_to)
+{
+int f_op2;
+f_op2 = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+if (f_op2 < 0)
+{
+dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+exit(99);
+}
+return (f_op2);
+}
+/**
+ * main - using argc and argv to copy file
+ * @argc: number of args
+ * @argv: pointer to the args on term line as an array of data
+ * Return: 0 success of reading file_from to
+ * writing over to file_to
+*/
+int main(int argc, char *argv[])
+{
+int fd1, fd2;
+ssize_t f_r1, f_wr;
+char *buffer;
+if (argc > 3)
+{
+dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+exit(97);
+}
+fd1 = open_file_from(argv[1]);
+fd2 = open_file_to(argv[2]);
+buffer = malloc(sizeof(char) * 1024);
+if (buffer == NULL)
+{
+close(fd1);
+close(fd2);
+exit(100);
+}
+while ((f_r1 = read(fd1, buffer, 1024)) > 0)
+{
+f_wr = write(fd2, buffer, f_r1);
+if (f_wr < 0)
+{
+dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+free(buffer);
+close(fd1);
+close(fd2);
+exit(99);
+}
+}
+if (f_r1 < 0)
+{
+dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+free(buffer);
+close(fd1);
+close(fd2);
+exit(98);
+}
+if (close(fd1) < 0)
+{
+dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", argv[1]);
+exit(100);
+}
+if (close(fd2) < 0)
+{
+dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", argv[2]);
+exit(100);
+}
+return (0);
+}
