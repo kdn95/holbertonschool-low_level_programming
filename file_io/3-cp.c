@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 {
 int fd1, fd2;
 ssize_t f_r1, f_wr;
-char *buffer;
+char buffer[1024];
 if (argc > 3)
 {
 dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
@@ -50,20 +50,12 @@ exit(97);
 }
 fd1 = open_file_from(argv[1]);
 fd2 = open_file_to(argv[2]);
-buffer = malloc(sizeof(char) * 1024);
-if (buffer == NULL)
-{
-close(fd1);
-close(fd2);
-exit(100);
-}
 while ((f_r1 = read(fd1, buffer, 1024)) > 0)
 {
 f_wr = write(fd2, buffer, f_r1);
 if (f_wr < 0)
 {
 dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-free(buffer);
 close(fd1);
 close(fd2);
 exit(99);
@@ -72,7 +64,6 @@ exit(99);
 if (f_r1 < 0)
 {
 dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-free(buffer);
 close(fd1);
 close(fd2);
 exit(98);
