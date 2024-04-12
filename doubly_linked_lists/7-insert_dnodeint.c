@@ -12,11 +12,11 @@ dlistint_t *new;
 dlistint_t *spot;
 dlistint_t *prev = NULL;
 unsigned int i = 0;
-new = malloc(sizeof(dlistint_t);
+new = malloc(sizeof(dlistint_t));
 if (new == NULL)
 {
 free(new);
-free_list(*h);
+free_dlistint(*h);
 exit(98);
 }
 new->n = n;
@@ -32,6 +32,7 @@ return (NULL);
 if (spot == NULL)
 {
 if (i == 0)
+{
 *h = new;
 new->prev = NULL;
 new->next = NULL;
@@ -46,10 +47,11 @@ new->next = NULL;
 else
 {
 if (i == 0)
+{
 spot->prev = new;
 new->next = spot;
 new->prev = NULL;
-*h = node;
+*h = new;
 }
 else
 {
@@ -60,3 +62,4 @@ new->next = spot;
 }
 }
 return (new);
+}
